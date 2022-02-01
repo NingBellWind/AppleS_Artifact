@@ -5,6 +5,14 @@
 /**************                       02/01/2022                     **************/
 /**********************************************************************************************/
 
+File Description:
+
+1) apples.zip is the source code of the AppleS Artifact.
+2) Instructions.txt is the instructions for the AppleS Artifact in a text file.
+3) Instructions.docx is the instructions for the AppleS Artifact in a MS WORD file.
+4) syscall_intercept-master.zip is the dependent library of the AppleS Artifact, please refer to https://github.com/pmem/syscall_intercept.
+5) tpcc-mysql-master.zip is the TPC-C workload driver used in the AppleS paper, please refer to https://github.com/memsql/tpcc-mysql.
+6) YCSB-master.zip is the YCSB workload driver used in the AppleS paper, please refer to https://github.com/brianfrankcooper/YCSB.
 
 1. Abstract
 
