@@ -630,7 +630,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 	version: [4.4.3]
 	working_directory: /root/mongodb_opt
 	expect_users: 512
-	disable_apples: 1
+	disable_apples: 0
 	eff_delay: 60
 	control_interval: 100000
 	measure_rounds: 10
@@ -731,7 +731,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	database: mongodb
 	version: [4.4.3]
-	working_directory: /root/mongodb_baseline
+	working_directory: /root/mongodb_cgroup
 	expect_users: 512
 	disable_apples: 1
 	eff_delay: 60
@@ -777,7 +777,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	database: mongodb
 	version: [4.4.3]
-	working_directory: /root/mongodb_baseline
+	working_directory: /root/mongodb_opt
 	expect_users: 512
 	disable_apples: 0
 	eff_delay: 60
