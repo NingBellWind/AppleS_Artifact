@@ -663,7 +663,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	[root@computing bin]# LD_PRELOAD=/root/apples/sys_xpslo_mon.so ./mongodx --dbpath /sdata1 --bind_ip_all
 
-	[root@computing3 YCSB-master]# ./bin/ycsb run mongodb -s -threads 512 -p "mongodb.maxconnections=1026" -p maxexecutiontime=360 -P workloads/workloadax > runSync.txt
+	[root@computing3 YCSB-master]# ./bin/ycsb run mongodb -s -threads 512 -p "mongodb.maxconnections=1026" -p maxexecutiontime=400 -P workloads/workloadax > runSync.txt
 
 	Note: We strongly sugggest you run the step 2 three times to prevent transient I/O fluctuation from affecting P optimization by ruling out the most deviated settings.
 	           For example, you run the step 2 three times and got three lines settings in the file bslo_opt_log1.txt shown as the followings:
