@@ -2,20 +2,8 @@
 /**************                                                                 The Instructions for the AppleS Artifact Evaluation                                                          **************/
 /**************                                                                                      created by Ning Li                                                                                             **************/
 /**************                                                                                        ning.li@uta.edu                                                                                                **************/
-/**************                                                                                            02/01/2022                                                                                                  **************/
+/**************                                                                                            02/13/2022                                                                                                  **************/
 /**************************************************************************************************************************/
-
-
-File Description:
-
-    1) apples.zip is the source code of the AppleS Artifact.
-    2) Instructions.txt is the instructions for the AppleS Artifact in a text file.
-    3) Instructions.docx is the instructions for the AppleS Artifact in a MS WORD file.
-    4) syscall_intercept-master.zip is the dependent library of the AppleS Artifact, please refer to https://github.com/pmem/syscall_intercept.
-    5) tpcc-mysql-master.zip is the TPC-C workload driver used in the AppleS paper, please refer to https://github.com/memsql/tpcc-mysql.
-    6) YCSB-master.zip is the YCSB workload driver used in the AppleS paper, please refer to https://github.com/brianfrankcooper/YCSB.
-
-
 
 1. Abstract
 
@@ -446,7 +434,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 	opt_run: 0
 	fairness_ub: 0
 	latencyVar_ub: 0
-	end_time: 335
+	end_time: 310
 	end_rqs: 10000000
 	P_target: 20
 	L_target: 1
@@ -488,7 +476,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	[root@computing3 sbin]# LD_PRELOAD=/root/apples/sys_xpslo_mon.so /usr/sbin/mysqld --basedir=/usr --datadir=/sdata2/mysql --plugin-dir=/usr/lib64/mysql/plugin --user=mysql --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --socket=/sdata2/mysql/mysqld.sock
 
-	[root@computing tpcc-mysql-master]# .tpcc_start -h127.0.0.1 -P3306 -dtpcc1000 -uroot -p 123 -w1000 -c256 -r60 -i10 -l450
+	[root@computing tpcc-mysql-master]# .tpcc_start -h127.0.0.1 -P3306 -dtpcc1000 -uroot -p 123 -w1000 -c256 -r60 -i10 -l600
 
 	Note: We strongly sugggest you run the step 2 three times to prevent transient I/O fluctuation from affecting P optimization by ruling out the most deviated settings.
 	           For example, you run the step 2 three times and got three lines settings in the file bslo_opt_log1.txt shown as the followings:
@@ -523,7 +511,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 	opt_run: 0
 	fairness_ub: 0
 	latencyVar_ub: 0
-	end_time: 335
+	end_time: 310
 	end_rqs: 10000000
 	P_target: 20
 	L_target: 1
@@ -633,7 +621,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 	version: [4.4.3]
 	working_directory: /root/mongodb_opt
 	expect_users: 512
-	disable_apples: 0
+	disable_apples: 1
 	eff_delay: 60
 	control_interval: 100000
 	measure_rounds: 10
@@ -666,7 +654,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	[root@computing bin]# LD_PRELOAD=/root/apples/sys_xpslo_mon.so ./mongodx --dbpath /sdata1 --bind_ip_all
 
-	[root@computing3 YCSB-master]# ./bin/ycsb run mongodb -s -threads 512 -p "mongodb.maxconnections=1026" -p maxexecutiontime=400 -P workloads/workloadax > runSync.txt
+	[root@computing3 YCSB-master]# ./bin/ycsb run mongodb -s -threads 512 -p "mongodb.maxconnections=1026" -p maxexecutiontime=360 -P workloads/workloadax > runSync.txt
 
 	Note: We strongly sugggest you run the step 2 three times to prevent transient I/O fluctuation from affecting P optimization by ruling out the most deviated settings.
 	           For example, you run the step 2 three times and got three lines settings in the file bslo_opt_log1.txt shown as the followings:
@@ -734,7 +722,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	database: mongodb
 	version: [4.4.3]
-	working_directory: /root/mongodb_cgroup
+	working_directory: /root/mongodb_baseline
 	expect_users: 512
 	disable_apples: 1
 	eff_delay: 60
@@ -780,7 +768,7 @@ Configure apples_configuration.txt for each step and deploy it in running direct
 
 	database: mongodb
 	version: [4.4.3]
-	working_directory: /root/mongodb_opt
+	working_directory: /root/mongodb_baseline
 	expect_users: 512
 	disable_apples: 0
 	eff_delay: 60
